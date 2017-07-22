@@ -1,0 +1,31 @@
+{
+  "name": "proxy-mcproxy",
+  "version": "0.0.1001",
+  "description": "Recursive proxy object",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "suman"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ORESoftware/proxy-mcproxy.git"
+  },
+  "keywords": [
+    "nodejs",
+    "proxy",
+    "recursive",
+    "immutable",
+    "immutability",
+    "test",
+    "testing"
+  ],
+  "author": "Olegzandr VD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ORESoftware/proxy-mcproxy/issues"
+  },
+  "homepage": "https://github.com/ORESoftware/proxy-mcproxy#readme"
+}
