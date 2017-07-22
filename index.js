@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var assert = require("assert");
+var freeze_existing_props_1 = require("freeze-existing-props");
 var mcProxy = function (target) {
     var mirrorCache = {};
     return new Proxy(target, {
@@ -20,5 +22,10 @@ var mcProxy = function (target) {
     });
 };
 exports.createMcProxy = function (val) {
+    assert(val && typeof val === 'object', 'value passed to createMcProxy must be an object.');
+    if (val) {
+        console.log('freezing existing props.', val);
+        val = freeze_existing_props_1.freezeExistingProps(val);
+    }
     return mcProxy(val || {});
 };

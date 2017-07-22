@@ -1,14 +1,22 @@
+//core
+import assert = require('assert');
+
+//npm
+import {freezeExistingProps} from 'freeze-existing-props';
+
+///////////////////////////////////////////////////////////////////
 
 export interface IMcProxyMirror {
- [key: string]: boolean
+  [key: string]: boolean
 }
 
+///////////////////////////////////////////////////////////////////
 
 let mcProxy = function (target: Object) {
-  const mirrorCache : IMcProxyMirror = {};
+  const mirrorCache: IMcProxyMirror = {};
   return new Proxy(target, {
     set: function (target, property, value, receiver) {
-      if(!mirrorCache[property]){
+      if (!mirrorCache[property]) {
         mirrorCache[property] = true;
         Object.defineProperty(target, property, {
           writable: false,
@@ -16,7 +24,7 @@ let mcProxy = function (target: Object) {
         });
         return true;
       }
-      else{
+      else {
         console.error(new Error(`property '${property}' has already been set.`));
         return false;
       }
@@ -25,5 +33,10 @@ let mcProxy = function (target: Object) {
 };
 
 export const createMcProxy = function (val?: Object) {
+  assert(val && typeof val === 'object', 'value passed to createMcProxy must be an object.');
+  if(val) {
+    console.log('freezing existing props.', val);
+    val = freezeExistingProps(val);
+  }
   return mcProxy(val || {});
 };
