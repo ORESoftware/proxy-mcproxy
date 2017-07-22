@@ -1,0 +1,9 @@
+node_modules
+.idea
+test
+*.sh
+*.txt
+*.md
+*.ts
+*.log
+!*.d.ts
