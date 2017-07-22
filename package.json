@@ -3,6 +3,8 @@
   "version": "0.0.1001",
   "description": "Recursive proxy object",
   "main": "index.js",
+  "typings": "index.d.ts",
+  "types": "index.d.ts",
   "directories": {
     "test": "test"
   },
