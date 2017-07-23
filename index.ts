@@ -25,18 +25,20 @@ let mcProxy = function (target: Object) {
         return true;
       }
       else {
-        console.error(new Error(`property '${property}' has already been set.`));
-        return false;
+        throw new Error(`property '${property}' has already been set.`);
+        // console.error(new Error(`property '${property}' has already been set.`));
+        // return false;
       }
     }
   });
 };
 
-export const createMcProxy = function (val?: Object) {
+export const create = function (val?: Object) {
   assert(val && typeof val === 'object', 'value passed to createMcProxy must be an object.');
   if(val) {
-    console.log('freezing existing props.', val);
-    val = freezeExistingProps(val);
+    console.log('freezing existing props for val => ', val);
+    // val = freezeExistingProps(val);
+    Object.freeze(val);
   }
   return mcProxy(val || {});
 };
