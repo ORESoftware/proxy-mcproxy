@@ -3,6 +3,7 @@ node_modules
 test
 *.sh
 *.txt
+*.json
 *.md
 *.ts
 *.log
