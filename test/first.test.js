@@ -1,12 +1,14 @@
 
-const {createMcProxy} = require('../index');
+const McProxy = require('../index');
 
+const mcp = McProxy.create();
 
-// const x = createMcProxy();
-// console.log(x);
+mcp.foo = 5;
 
-const x = {foo:4};
-x.foo = 5;
-delete x.foo;
+console.log(mcp);
+console.log(mcp.foo);
 
-console.log(x.foo);
+mcp.ee = 4;
+
+// we expect an error when we reassign foo:
+mcp.foo = 6;

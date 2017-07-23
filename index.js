@@ -20,10 +20,12 @@ var mcProxy = function (target) {
     });
 };
 exports.create = function (val) {
-    assert(val && typeof val === 'object', 'value passed to createMcProxy must be an object.');
     if (val) {
+        assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
         console.log('freezing existing props for val => ', val);
         Object.freeze(val);
     }
     return mcProxy(val || {});
 };
+var $exports = module.exports;
+exports.default = $exports;

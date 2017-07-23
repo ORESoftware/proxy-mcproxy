@@ -34,11 +34,15 @@ let mcProxy = function (target: Object) {
 };
 
 export const create = function (val?: Object) {
-  assert(val && typeof val === 'object', 'value passed to createMcProxy must be an object.');
   if(val) {
+    assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
     console.log('freezing existing props for val => ', val);
     // val = freezeExistingProps(val);
     Object.freeze(val);
   }
   return mcProxy(val || {});
 };
+
+
+const $exports = module.exports;
+export default $exports;
