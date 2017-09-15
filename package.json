@@ -35,6 +35,7 @@
     "@types/node": "^8.0.14"
   },
   "dependencies": {
-    "freeze-existing-props": "latest"
+    "freeze-existing-props": "latest",
+    "proxy-polyfill": "^0.1.7"
   }
 }

@@ -1,8 +1,31 @@
 //core
 import assert = require('assert');
+import util = require('util');
 
 //npm
 import {freezeExistingProps} from 'freeze-existing-props';
+
+//project
+
+try{
+  if(!global.Proxy){
+    global.Proxy = require('proxy-polyfill');
+  }
+}
+catch(err){
+
+}
+
+try{
+  if(!window.Proxy){
+    window.Proxy = require('proxy-polyfill');
+  }
+}
+catch(err){
+
+}
+
+
 
 ///////////////////////////////////////////////////////////////////
 
@@ -16,33 +39,23 @@ let mcProxy = function (target: Object) {
   const mirrorCache: IMcProxyMirror = {};
   return new Proxy(target, {
     set: function (target, property, value, receiver) {
-      if (!mirrorCache[property]) {
-        mirrorCache[property] = true;
-        Object.defineProperty(target, property, {
-          writable: false,
-          value: (value && typeof value === 'object') ? mcProxy(value) : value
-        });
-        return true;
-      }
-      else {
+      if (mirrorCache[property]) {
         throw new Error(`property '${property}' has already been set.`);
-        // console.error(new Error(`property '${property}' has already been set.`));
-        // return false;
       }
+      mirrorCache[property] = true;
+      Object.defineProperty(target, property, {
+        writable: true,
+        value: (value && typeof value === 'object') ? mcProxy(value) : value
+      });
+      return true;
     }
   });
 };
 
 export const create = function (val?: Object) {
-  if(val) {
-    assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
-    console.log('freezing existing props for val => ', val);
-    // val = freezeExistingProps(val);
-    Object.freeze(val);
-  }
+  val && assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
   return mcProxy(val || {});
 };
-
 
 const $exports = module.exports;
 export default $exports;
