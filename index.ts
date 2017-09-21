@@ -47,6 +47,7 @@ let mcProxy = function (target: Object) {
         writable: true,
         value: (value && typeof value === 'object') ? mcProxy(value) : value
       });
+
       return true;
     }
   });
