@@ -24,6 +24,7 @@ var mcProxy = function (target) {
             }
             mirrorCache[property] = true;
             Object.defineProperty(target, property, {
+                enumerable: true,
                 writable: true,
                 value: (value && typeof value === 'object') ? mcProxy(value) : value
             });
