@@ -1,6 +1,6 @@
 {
   "name": "proxy-mcproxy",
-  "version": "0.0.1004",
+  "version": "0.0.1005",
   "description": "Recursive proxy object",
   "main": "index.js",
   "typings": "index.d.ts",
