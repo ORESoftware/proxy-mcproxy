@@ -1,3 +1,5 @@
+'use strict';
+
 //core
 import assert = require('assert');
 import util = require('util');
