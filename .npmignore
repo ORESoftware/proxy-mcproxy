@@ -1,10 +1,20 @@
+
+### folders
 node_modules
 .idea
 test
+
+### matching
 *.sh
 *.txt
 *.json
 *.md
 *.ts
 *.log
+
+### files
+.npmignore
+.gitignore
+
+### negation
 !*.d.ts

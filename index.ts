@@ -5,28 +5,6 @@ import util = require('util');
 //npm
 import {freezeExistingProps} from 'freeze-existing-props';
 
-//project
-
-try{
-  if(!global.Proxy){
-    global.Proxy = require('proxy-polyfill');
-  }
-}
-catch(err){
-
-}
-
-try{
-  if(!window.Proxy){
-    window.Proxy = require('proxy-polyfill');
-  }
-}
-catch(err){
-
-}
-
-
-
 ///////////////////////////////////////////////////////////////////
 
 export interface IMcProxyMirror {
@@ -58,6 +36,7 @@ export const create = function (val?: Object) {
   val && assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
   return mcProxy(val || {});
 };
+
 
 const $exports = module.exports;
 export default $exports;
