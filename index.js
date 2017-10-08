@@ -1,20 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var assert = require("assert");
-try {
-    if (!global.Proxy) {
-        global.Proxy = require('proxy-polyfill');
-    }
-}
-catch (err) {
-}
-try {
-    if (!window.Proxy) {
-        window.Proxy = require('proxy-polyfill');
-    }
-}
-catch (err) {
-}
 var mcProxy = function (target) {
     var mirrorCache = {};
     return new Proxy(target, {
