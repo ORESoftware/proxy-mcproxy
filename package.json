@@ -1,6 +1,6 @@
 {
   "name": "proxy-mcproxy",
-  "version": "0.0.1008",
+  "version": "0.0.1009",
   "description": "Recursive proxy-object creation.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
