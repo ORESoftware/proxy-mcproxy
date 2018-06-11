@@ -1,22 +1,18 @@
 {
   "name": "proxy-mcproxy",
-  "version": "0.0.1007",
-  "description": "Recursive proxy object",
-  "main": "index.js",
-  "typings": "index.d.ts",
-  "types": "index.d.ts",
-  "directories": {
-    "test": "test"
-  },
+  "version": "0.0.1008",
+  "description": "Recursive proxy-object creation.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "suman"
+    "test": "suman test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ORESoftware/proxy-mcproxy.git"
   },
   "keywords": [
-    "nodejs",
     "proxy",
     "recursive",
     "immutable",
@@ -34,7 +30,7 @@
     "freeze-existing-props": "latest"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.42",
-    "@types/node": "^8.0.14"
+    "@types/core-js": "latest",
+    "@types/node": "latest"
   }
 }
