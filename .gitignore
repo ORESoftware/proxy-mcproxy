@@ -6,6 +6,7 @@ dist/*
 
 ### matching
 *.log
+*.tgz
 
 ### files
 package-lock.json

@@ -16,9 +16,12 @@ src
 *.ts
 *.log
 *.yml
+*.tgz
 
 ### files
 .npmignore
+.npmrc
+Dockerfile*
 .gitignore
 yarn.lock
 .editorconfig

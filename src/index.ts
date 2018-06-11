@@ -15,7 +15,7 @@ export interface McProxyMirror {
 
 ///////////////////////////////////////////////////////////////////
 
-let mcProxy = function (target: Object) {
+let mcProxy = function (target: object) : object {
   const mirrorCache: McProxyMirror = {};
   return new Proxy(target, {
     set: function (target, property, value, receiver) {
@@ -34,9 +34,9 @@ let mcProxy = function (target: Object) {
   });
 };
 
-export const create = function (val?: Object) {
+export const create = function (val?: object) : object {
   if (arguments.length > 0) {
-    assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
+    assert(typeof val === 'object', 'value passed to McProxy#create must be a non-null object.');
   }
   return mcProxy(val || {});
 };
