@@ -1,7 +1,10 @@
 {
   "linkToItself": true,
   "searchRoots": [
-    "$HOME/WebstormProjects"
+    "$HOME/WebstormProjects/oresoftware"
+  ],
+  "comments":[
+
   ],
   "ignore": [
     "/node_modules/",

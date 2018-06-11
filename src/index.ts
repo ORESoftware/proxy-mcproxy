@@ -9,14 +9,14 @@ import {freezeExistingProps} from 'freeze-existing-props';
 
 ///////////////////////////////////////////////////////////////////
 
-export interface IMcProxyMirror {
+export interface McProxyMirror {
   [key: string]: boolean
 }
 
 ///////////////////////////////////////////////////////////////////
 
 let mcProxy = function (target: Object) {
-  const mirrorCache: IMcProxyMirror = {};
+  const mirrorCache: McProxyMirror = {};
   return new Proxy(target, {
     set: function (target, property, value, receiver) {
       if (mirrorCache[property]) {
@@ -35,10 +35,15 @@ let mcProxy = function (target: Object) {
 };
 
 export const create = function (val?: Object) {
-  val && assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
+  if (arguments.length > 0) {
+    assert(typeof val === 'object', 'value passed to McProxy#create must be an object.');
+  }
   return mcProxy(val || {});
 };
 
+export default create;
 
-const $exports = module.exports;
-export default $exports;
+export const r2gSmokeTest = function () {
+  return true;
+};
+

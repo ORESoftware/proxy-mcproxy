@@ -4,9 +4,12 @@ node_modules
 .idea
 test
 scripts
+src
+.docker.r2g
+.circleci
+.suman
 
 ### matching
-*.sh
 *.txt
 *.json
 *.md
@@ -19,6 +22,6 @@ scripts
 .gitignore
 yarn.lock
 .editorconfig
+.dockerignore
 
-### negation
-!*.d.ts
+
