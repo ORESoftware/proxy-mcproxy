@@ -1,5 +1,6 @@
 
-const McProxy = require('../index');
+const McProxy = require('proxy-mcproxy');
+const assert = require('assert');
 
 const mcp = McProxy.create();
 
@@ -11,4 +12,7 @@ console.log(mcp.foo);
 mcp.ee = 4;
 
 // we expect an error when we reassign foo:
-mcp.foo = 6;
+assert.throws(function(){
+  mcp.foo = 6;
+});
+

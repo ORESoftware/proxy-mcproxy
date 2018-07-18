@@ -31,9 +31,7 @@ const EE = require('events');
 
 
 const McProxy = require('proxy-mcproxy');
-
 const v = McProxy.create();
-
 
 
 
