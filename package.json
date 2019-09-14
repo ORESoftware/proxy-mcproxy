@@ -1,10 +1,10 @@
 {
   "name": "proxy-mcproxy",
-  "version": "0.0.1010",
+  "version": "0.0.109",
   "description": "Recursive proxy-object creation.",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "types": "dist/index.d.ts",
+  "main": "dist/main.js",
+  "typings": "dist/main.d.ts",
+  "types": "dist/main.d.ts",
   "scripts": {
     "test": "suman test"
   },
@@ -27,10 +27,9 @@
   },
   "homepage": "https://github.com/ORESoftware/proxy-mcproxy#readme",
   "dependencies": {
-    "freeze-existing-props": "latest"
+    "freeze-existing-props": "0.0.1005"
   },
   "devDependencies": {
-    "@types/core-js": "latest",
-    "@types/node": "latest"
+    "@types/node": "^12.7.5"
   }
 }

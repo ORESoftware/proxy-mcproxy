@@ -7,22 +7,23 @@ import util = require('util');
 //npm
 import {freezeExistingProps} from 'freeze-existing-props';
 
-///////////////////////////////////////////////////////////////////
 
 export interface McProxyMirror {
   [key: string]: boolean
 }
 
-///////////////////////////////////////////////////////////////////
 
 let mcProxy = function (target: object) : object {
   const mirrorCache: McProxyMirror = {};
   return new Proxy(target, {
-    set: function (target, property, value, receiver) {
+    set (target, property: any, value, receiver) {
+      
       if (mirrorCache[property]) {
         throw new Error(`property '${property}' has already been set.`);
       }
+      
       mirrorCache[property] = true;
+      
       Object.defineProperty(target, property, {
         enumerable: true,
         writable: true,
